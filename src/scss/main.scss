@@ -1,20 +1,17 @@
+@use "./abstract/mixin" as mx;
+@use "./base/fonts";
 @use "./components/main";
 
 body {
+  @include mx.flex-center();
   margin: 0;
   height: 100vh;
   background-color: #303131;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .controller-img {
   position: absolute;
-  width: 414.31px;
-  height: 301.31px;
-  left: -88px;
+  left: 0;
   bottom: 15px;
 }
 
