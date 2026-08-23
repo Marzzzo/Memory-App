@@ -1,6 +1,5 @@
 @use "./abstract/mixin" as mx;
-@use "./base/fonts";
-@use "./components/main";
+
 
 body {
   @include mx.flex-center();
@@ -9,26 +8,4 @@ body {
   background-color: #303131;
 }
 
-.controller-img {
-  position: absolute;
-  left: 0;
-  bottom: 15px;
-}
 
-.hero-headline {
-  &__first {
-    font-family: "Almarai";
-    font-size: 48px;
-    font-weight: 400;
-    color: #ffffff;
-    margin: 0;
-  }
-  &__second {
-    font-family: "Red Rose";
-    font-size: 140px;
-    font-weight: 700;
-    color: #ffffff;
-    margin: 0;
-    padding-bottom: 85px;
-  }
-}
