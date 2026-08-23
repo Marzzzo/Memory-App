@@ -23,4 +23,4 @@ function showStartPage(): void {
   app.innerHTML = startPage();
 }
 
-init();
+// init();

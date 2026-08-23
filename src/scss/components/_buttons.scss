@@ -1,19 +1,16 @@
 @use "../abstract/mixin" as mx;
 
 .play-button {
+  position: relative;
+  @include mx.flex-center(row);
+  justify-content: unset;
   width: 250px;
   height: 98px;
   padding: 24px;
+  gap: 20px;
   background-color: #f0ea6e;
   border: none;
   transition: transform 200ms ease-in-out;
-
-  &__inner {
-    @include mx.flex-center(row);
-    width: 100%;
-    height: 100%;
-    gap: 20px;
-  }
 
   &__controller {
     width: 44px;
@@ -30,20 +27,12 @@
     transition: transform 300ms ease-in-out;
   }
 
-  &__arrow {
-    position: relative;
-    width: 33px;
-    height: 40px;
-    flex-shrink: 0;
-    transition: transform 300ms ease-in-out;
-  }
-
   &__arrow-icon {
     position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    transition: opacity 100ms ease-in-out;
+    right: 24px;
+    transition:
+      opacity 100ms ease-in-out,
+      transform 300ms ease-in-out;
 
     &--default {
       opacity: 1;
@@ -62,11 +51,8 @@
       transform: rotate(-15deg);
     }
 
-    .play-button__text {
-      transform: translateX(3px);
-    }
-
-    .play-button__arrow {
+    .play-button__text,
+    .play-button__arrow-icon {
       transform: translateX(3px);
     }
 
