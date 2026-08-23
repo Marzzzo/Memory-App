@@ -1,0 +1,70 @@
+@use "../abstract/mixin" as mx;
+
+.settings-main {
+  @include mx.flex-center();
+  height: 100vh;
+}
+
+.settings-content {
+  width: 1103px;
+
+  &__header {
+    position: relative;
+    width: 100%;
+    padding-bottom: 62px;
+
+    & > h1 {
+      font-family: "Red Rose";
+      font-size: 54px;
+      font-weight: 700;
+    }
+
+    & > img {
+      width: 251px;
+      position: absolute;
+      left: -18px;
+      top: 58px;
+    }
+  }
+}
+
+.themes-content {
+  display: flex;
+  flex-direction: column;
+  gap: 54px;
+}
+
+.theme {
+  @include mx.flex-center();
+  gap: 12px;
+  align-items: unset;
+  border: none;
+
+  &__legend-content {
+    padding-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    & > img {
+      width: 32px;
+      height: 32px;
+    }
+
+    & > span {
+      font-size: 24px;
+      font-weight: 700;
+    }
+  }
+}
+
+.label {
+  display: flex;
+  margin-left: 50px;
+  gap: 10px;
+
+  & > span {
+    font-size: 20px;
+    font-weight: 400;
+  }
+}

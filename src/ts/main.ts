@@ -12,6 +12,7 @@ import "../scss/pages/_setting-page.scss";
 
 //templates
 import { startPage } from "./templates/start-page";
+import { settingPage } from "./templates/setting-page";
 
 function init(): void {
   showStartPage();
@@ -20,7 +21,15 @@ function init(): void {
 const app = document.getElementById("app")!;
 
 function showStartPage(): void {
+  document.body.className = "start-page";
   app.innerHTML = startPage();
+  const playButton = document.getElementById("play-button");
+  playButton?.addEventListener("click", showSettingPage);
 }
 
-// init();
+function showSettingPage(): void {
+  document.body.className = "setting-page";
+  app.innerHTML = settingPage();
+}
+
+init();
