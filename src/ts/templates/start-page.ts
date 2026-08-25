@@ -8,13 +8,13 @@ export function startPage(): string {
           </div>
 
           <button class="play-button" id="play-button">
-            <img class="play-button__controller" src="/assets/controller_small.svg" alt="controller_small" />
+            <img class="play-button__controller" src="./assets/controller_small.svg" alt="controller_small" />
             <span class="play-button__text">play</span>
-            <img class="play-button__arrow-icon play-button__arrow-icon--default" src="/assets/arrow_right.svg" alt="" />
-            <img class="play-button__arrow-icon play-button__arrow-icon--hover" src="/assets/arrow_right_hover.svg" alt="" />
+            <img class="play-button__arrow-icon play-button__arrow-icon--default" src="./assets/arrow_right.svg" alt="" />
+            <img class="play-button__arrow-icon play-button__arrow-icon--hover" src="./assets/arrow_right_hover.svg" alt="" />
           </button>
 
-          <img class="controller-img" src="/assets/controller.svg" alt="controller-img" />
+          <img class="controller-img" src="./assets/controller.svg" alt="controller-img" />
         </section>
       </main>
       `;
