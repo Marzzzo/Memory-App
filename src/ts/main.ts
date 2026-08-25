@@ -32,4 +32,4 @@ function showSettingPage(): void {
   app.innerHTML = settingPage();
 }
 
-init();
+// init();

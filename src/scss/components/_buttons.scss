@@ -65,3 +65,45 @@
     }
   }
 }
+
+.board-button {
+  @include mx.flex-center(row);
+  width: 126px;
+  height: 53px;
+  border: none;
+  background-color: #f0ea6e;
+  color: #303131;
+  gap: 8px;
+  transform-origin: left center;
+  transition: transform 300ms ease-in-out;
+
+  & > img {
+    width: 20px;
+    height: 16px;
+  }
+
+  & > span {
+    font-family: "Red Rose";
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  &:hover:not(:disabled) {
+    transform: scale(1.15);
+    cursor: pointer;
+
+    & > img {
+      transform: rotate(-5deg);
+    }
+  }
+
+  &:disabled {
+    background-color: #dbdbd6;
+    color: #a3a1a1;
+    cursor: not-allowed;
+
+    & > img {
+      opacity: 0.35;
+    }
+  }
+}
