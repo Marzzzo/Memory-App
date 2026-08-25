@@ -32,8 +32,8 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   height: 539px;
-  gap: 54px;
 
   & > img {
     position: absolute;
