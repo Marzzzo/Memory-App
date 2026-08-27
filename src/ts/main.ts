@@ -14,12 +14,21 @@ import "../scss/pages/_setting-page.scss";
 import { startPage } from "./templates/start-page";
 import { settingPage } from "./templates/setting-page";
 
+//settings
+import { initThemeSelection } from "./settings/theme-selection";
+
+/**
+ * Initializes the application and displays the start page.
+ */
 function init(): void {
   showStartPage();
 }
 
 const app = document.getElementById("app")!;
 
+/**
+ * Displays the start page and adds the play button event.
+ */
 function showStartPage(): void {
   document.body.className = "start-page";
   app.innerHTML = startPage();
@@ -27,9 +36,13 @@ function showStartPage(): void {
   playButton?.addEventListener("click", showSettingPage);
 }
 
+/**
+ * Displays the settings page and initializes the theme selection.
+ */
 function showSettingPage(): void {
   document.body.className = "setting-page";
   app.innerHTML = settingPage();
+  initThemeSelection();
 }
 
 init();

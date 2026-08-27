@@ -1,3 +1,6 @@
+/**
+ * Returns the HTML structure for the start page.
+ */
 export function startPage(): string {
   return /* html */ `
       <main class="hero-main">

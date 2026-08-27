@@ -70,23 +70,57 @@
 
 .label {
   display: flex;
+  align-items: center;
+  width: 300px;
   margin-left: 50px;
   gap: 10px;
+  cursor: pointer;
+
+  &__input {
+    display: none;
+  }
+
+  &__checkbox {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
 
   & > span {
     font-size: 20px;
+    line-height: 24px;
     font-weight: 400;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  &::after {
+    content: "";
+    width: 41px;
+    height: 20px;
+    background: url("./assets/small_setting_line.svg") center / contain no-repeat;
+    opacity: 0;
+  }
+
+  &:hover > span,
+  &:has(&__input:checked) > span {
+    font-weight: 700;
+  }
+
+  &:hover::after,
+  &:has(&__input:checked)::after {
+    opacity: 1;
   }
 }
 
 .selected-board {
   position: absolute;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: center;
-
+  width: 546px;
   padding: 14px 20px;
-  left: 557px;
+  left: 518px;
   bottom: 0;
   gap: 9px;
 
