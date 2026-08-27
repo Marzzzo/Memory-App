@@ -4,6 +4,7 @@
 export function initThemeSelection(): void {
   getAllLabels().forEach(addSelectionEvents);
   getThemeLabels().forEach(addPreviewEvents);
+  updateAllIcons();
 }
 
 /**
@@ -66,6 +67,15 @@ function resetIcon(label: HTMLLabelElement): void {
 function updateGroupIcons(input: HTMLInputElement): void {
   const inputs = document.querySelectorAll<HTMLInputElement>(`input[name="${input.name}"]`);
   inputs.forEach(updateInputIcon);
+}
+
+/**
+ * Updates all checkbox icons based on their current state.
+ */
+function updateAllIcons(): void {
+  getAllLabels().forEach((label) => {
+    resetIcon(label);
+  });
 }
 
 /**
