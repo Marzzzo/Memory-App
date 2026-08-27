@@ -1,5 +1,19 @@
+const CHECKBOX_DEFAULT = "./assets/checkbox.svg";
+const CHECKBOX_CHECKED = "./assets/checkbox_checked.svg";
+
+const SELECTORS = {
+  label: ".label",
+  input: ".label__input",
+  checkbox: ".label__checkbox",
+  preview: ".theme-preview",
+  theme: ".selected-board__theme",
+  player: ".selected-board__player",
+  boardSize: ".selected-board__size",
+  startButton: ".board-button",
+};
+
 /**
- * Initializes selection and preview events for all theme options.
+ * Initializes all selection and preview events.
  */
 export function initThemeSelection(): void {
   getAllLabels().forEach(addSelectionEvents);
@@ -7,40 +21,44 @@ export function initThemeSelection(): void {
   updateAllIcons();
 }
 
+/* ---------- DOM ELEMENTS ---------- */
+
 /**
  * Returns all selectable labels.
  */
 function getAllLabels(): NodeListOf<HTMLLabelElement> {
-  return document.querySelectorAll(".label");
+  return document.querySelectorAll(SELECTORS.label);
 }
 
 /**
  * Returns all labels that contain a preview image.
  */
 function getThemeLabels(): NodeListOf<HTMLLabelElement> {
-  return document.querySelectorAll(".label[data-preview]");
+  return document.querySelectorAll(`${SELECTORS.label}[data-preview]`);
 }
 
 /**
  * Returns the input element inside the given label.
  */
 function getInput(label: HTMLLabelElement): HTMLInputElement | null {
-  return label.querySelector(".label__input");
+  return label.querySelector(SELECTORS.input);
 }
 
 /**
  * Returns the checkbox image inside the given label.
  */
 function getCheckbox(label: HTMLLabelElement): HTMLImageElement | null {
-  return label.querySelector(".label__checkbox");
+  return label.querySelector(SELECTORS.checkbox);
 }
 
 /**
  * Returns the theme preview image element.
  */
 function getThemePreview(): HTMLImageElement | null {
-  return document.querySelector(".theme-preview");
+  return document.querySelector(SELECTORS.preview);
 }
+
+/* ---------- CHECKBOX ICONS ---------- */
 
 /**
  * Sets the checked checkbox icon on hover.
@@ -48,21 +66,28 @@ function getThemePreview(): HTMLImageElement | null {
 function setHoverIcon(label: HTMLLabelElement): void {
   const checkbox = getCheckbox(label);
   if (!checkbox) return;
-  checkbox.src = "./assets/checkbox_checked.svg";
+  checkbox.src = CHECKBOX_CHECKED;
 }
 
 /**
- * Resets the checkbox icon based on the current selection state.
+ * Resets the checkbox icon based on its selection state.
  */
 function resetIcon(label: HTMLLabelElement): void {
   const input = getInput(label);
   const checkbox = getCheckbox(label);
   if (!input || !checkbox) return;
-  checkbox.src = input.checked ? "./assets/checkbox_checked.svg" : "./assets/checkbox.svg";
+  checkbox.src = input.checked ? CHECKBOX_CHECKED : CHECKBOX_DEFAULT;
 }
 
 /**
- * Updates all checkbox icons within the selected input group.
+ * Updates all checkbox icons on page initialization.
+ */
+function updateAllIcons(): void {
+  getAllLabels().forEach(resetIcon);
+}
+
+/**
+ * Updates all checkbox icons within an input group.
  */
 function updateGroupIcons(input: HTMLInputElement): void {
   const inputs = document.querySelectorAll<HTMLInputElement>(`input[name="${input.name}"]`);
@@ -70,34 +95,15 @@ function updateGroupIcons(input: HTMLInputElement): void {
 }
 
 /**
- * Updates all checkbox icons based on their current state.
- */
-function updateAllIcons(): void {
-  getAllLabels().forEach((label) => {
-    resetIcon(label);
-  });
-}
-
-/**
  * Updates the checkbox icon of the given input.
  */
 function updateInputIcon(input: HTMLInputElement): void {
-  const label = input.closest<HTMLLabelElement>(".label");
+  const label = input.closest<HTMLLabelElement>(SELECTORS.label);
   if (!label) return;
   resetIcon(label);
 }
 
-/**
- * Adds hover, leave, and change events to a selectable label.
- */
-function addSelectionEvents(label: HTMLLabelElement): void {
-  const input = getInput(label);
-  label.addEventListener("mouseenter", () => setHoverIcon(label));
-  label.addEventListener("mouseleave", () => resetIcon(label));
-  input?.addEventListener("change", () => {
-    handleSelectionChange(input);
-  });
-}
+/* ---------- THEME PREVIEW ---------- */
 
 /**
  * Displays the preview image of the hovered theme.
@@ -112,11 +118,11 @@ function showHoverPreview(label: HTMLLabelElement): void {
  * Returns the currently selected theme label.
  */
 function getSelectedTheme(): HTMLLabelElement | null {
-  return document.querySelector(".label[data-preview]:has(.label__input:checked)");
+  return document.querySelector(`${SELECTORS.label}[data-preview]:has(${SELECTORS.input}:checked)`);
 }
 
 /**
- * Displays the preview image of the currently selected theme.
+ * Displays the preview image of the selected theme.
  */
 function showSelectedPreview(): void {
   const selected = getSelectedTheme();
@@ -125,21 +131,13 @@ function showSelectedPreview(): void {
   preview.src = selected.dataset.preview;
 }
 
-/**
- * Adds hover events to display and reset the theme preview.
- */
-function addPreviewEvents(label: HTMLLabelElement): void {
-  label.addEventListener("mouseenter", () => {
-    showHoverPreview(label);
-  });
-  label.addEventListener("mouseleave", showSelectedPreview);
-}
+/* ---------- SELECTED SETTINGS ---------- */
 
 /**
- * Returns the text of the label associated with the given input.
+ * Returns the text of the label associated with an input.
  */
 function getLabelText(input: HTMLInputElement): string {
-  const label = input.closest<HTMLLabelElement>(".label");
+  const label = input.closest<HTMLLabelElement>(SELECTORS.label);
   const text = label?.querySelector("span");
   return text?.textContent?.trim() ?? "";
 }
@@ -149,9 +147,9 @@ function getLabelText(input: HTMLInputElement): string {
  */
 function getOutput(name: string): HTMLSpanElement | null {
   const outputs: Record<string, string> = {
-    theme: ".selected-board__theme",
-    player: ".selected-board__player",
-    "board-size": ".selected-board__size",
+    theme: SELECTORS.theme,
+    player: SELECTORS.player,
+    "board-size": SELECTORS.boardSize,
   };
   return document.querySelector(outputs[name]);
 }
@@ -165,6 +163,8 @@ function updateSelectedText(input: HTMLInputElement): void {
   output.textContent = getLabelText(input);
 }
 
+/* ---------- START BUTTON ---------- */
+
 /**
  * Checks whether all required options are selected.
  */
@@ -172,6 +172,7 @@ function isSelectionComplete(): boolean {
   const theme = document.querySelector('input[name="theme"]:checked');
   const player = document.querySelector('input[name="player"]:checked');
   const size = document.querySelector('input[name="board-size"]:checked');
+
   return !!theme && !!player && !!size;
 }
 
@@ -179,8 +180,10 @@ function isSelectionComplete(): boolean {
  * Updates the start button based on the selection state.
  */
 function updateStartButton(): void {
-  const button = document.querySelector<HTMLButtonElement>(".board-button");
+  const button = document.querySelector<HTMLButtonElement>(SELECTORS.startButton);
+
   if (!button) return;
+
   button.disabled = !isSelectionComplete();
 }
 
@@ -191,4 +194,28 @@ function handleSelectionChange(input: HTMLInputElement): void {
   updateGroupIcons(input);
   updateSelectedText(input);
   updateStartButton();
+}
+
+/* ---------- EVENTS ---------- */
+
+/**
+ * Adds selection events to a selectable label.
+ */
+function addSelectionEvents(label: HTMLLabelElement): void {
+  const input = getInput(label);
+  label.addEventListener("mouseenter", () => setHoverIcon(label));
+  label.addEventListener("mouseleave", () => resetIcon(label));
+  input?.addEventListener("change", () => {
+    handleSelectionChange(input);
+  });
+}
+
+/**
+ * Adds hover events for the theme preview.
+ */
+function addPreviewEvents(label: HTMLLabelElement): void {
+  label.addEventListener("mouseenter", () => {
+    showHoverPreview(label);
+  });
+  label.addEventListener("mouseleave", showSelectedPreview);
 }
