@@ -9,10 +9,12 @@ import "../scss/components/_buttons.scss";
 //pages
 import "../scss/pages/_start-page.scss";
 import "../scss/pages/_setting-page.scss";
+import "../scss/pages/_game-page.scss";
 
 //templates
 import { startPage } from "./templates/start-page";
 import { settingPage } from "./templates/setting-page";
+import { gamePage } from "./templates/game-page";
 
 //settings
 import { initThemeSelection } from "./settings/theme-selection";
@@ -45,4 +47,4 @@ function showSettingPage(): void {
   initThemeSelection();
 }
 
-init();
+// init();

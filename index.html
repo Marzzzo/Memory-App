@@ -8,7 +8,34 @@
     <title>Memory App</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <main class="game-main">
+        <section class="game-main__content">
+          <header class="game-main__header">
+            <div class="game-main__header--left">
+              <div class="game-main__header--left--blue">
+                <img src="/assets/blue-label.svg" alt="" />
+                <span>Blue</span>
+                <span>0</span>
+              </div>
+              <div class="game-main__header--left--orange">
+                <img src="/assets/orange-label.svg" alt="" />
+                <span>Orange</span>
+                <span>0</span>
+              </div>
+            </div>
+            <div class="header-mid">
+              <span>Current player:</span>
+              <img src="/assets/blue-label.svg" alt="" />
+            </div>
+            <button class="header-right">
+              <img src="/assets/exit-icon.svg" alt="" />
+              <span>Exit game</span>
+            </button>
+          </header>
+        </section>
+      </main>
+    </div>
     <script type="module" src="./src/ts/main.ts"></script>
   </body>
 </html>

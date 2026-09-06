@@ -1,0 +1,116 @@
+@use "../abstract/mixin" as mx;
+
+.game-main {
+  display: flex;
+  justify-content: center;
+  background-color: #303131;
+  height: 100vh;
+
+  &__content {
+    position: relative;
+    margin: 38px 111px 0 112px;
+    width: 1440px;
+  }
+}
+
+.game-main__header {
+  position: absolute;
+  top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 62px;
+
+  &--left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #86e9d633;
+    width: 293px;
+    height: 100%;
+    gap: 20px;
+
+    &--blue {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      & > img {
+        width: 24px;
+        height: 20px;
+      }
+
+      & > span {
+        font-family: "Red Rose";
+        color: #2bb1ff;
+        font-size: 24px;
+        font-weight: 700;
+      }
+    }
+    &--orange {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      & > img {
+        width: 24px;
+        height: 20px;
+      }
+
+      & > span {
+        font-family: "Red Rose";
+        color: #f58e39;
+        font-size: 24px;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+.header-mid {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &>img {
+    width: 29px;
+    height: 24px;
+  }
+
+  &>span {
+    font-family: "Red Rose";
+    font-size: 26px;
+    font-weight: 400;
+    color: #FFFFFF;
+  }
+}
+
+.header-right{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 207px;
+  height: 62px;
+  border: 2px solid #4DD5BC;
+  background-color: #86E9D624;
+  gap: 10px;
+  cursor: pointer;
+
+  &>img{
+    width: 25.75px;
+    height: 22.5px;
+  }
+
+  &>span{
+    font-family: "Red Rose";
+    font-size: 24px;
+    font-weight: 700;
+    color: #FFFFFF;
+  }
+
+  &:hover{
+    border: 3px solid #4DD5BC;
+    box-shadow: 4px 4px 6px #4DD5BC33;
+  }
+}
