@@ -1,4 +1,9 @@
-export function gamePageTemplate() {
+/**
+ * Creates the HTML template for the game page.
+ *
+ * @returns The game page template as an HTML string.
+ */
+export function gamePageTemplate(): string {
   return /*html*/ `
               <main class="game-main">
         <section class="game-main__content">
@@ -32,6 +37,11 @@ export function gamePageTemplate() {
     `;
 }
 
+/**
+ * Creates the HTML template for a memory card.
+ *
+ * @returns The card template as an HTML string.
+ */
 export function cardTemplate(): string {
   return `
     <div class="card">

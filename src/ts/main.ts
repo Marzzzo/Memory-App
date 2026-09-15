@@ -53,11 +53,19 @@ function showSettingPage(): void {
   startButton?.addEventListener("click", showGamePage);
 }
 
+/**
+ * Returns the currently selected board size.
+ *
+ * @returns The selected board size as a number.
+ */
 function getSelectedBoardSize(): number {
   const input = document.querySelector<HTMLInputElement>('input[name="board-size"]:checked');
   return Number(input?.value);
 }
 
+/**
+ * Displays the game page and creates the selected game board.
+ */
 function showGamePage(): void {
   const boardSize = getSelectedBoardSize();
   document.body.className = "game-page";
