@@ -4,6 +4,15 @@
   gap: 16px;
   justify-content: center;
   padding-top: 54px;
+
+  &--16 {
+    grid-template-columns: repeat(4, 120px);
+  }
+
+  &--24,
+  &--36 {
+    grid-template-columns: repeat(6, 120px);
+  }
 }
 
 .card {

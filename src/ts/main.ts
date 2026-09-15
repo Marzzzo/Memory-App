@@ -15,13 +15,13 @@ import "../scss/pages/_game-page.scss";
 //templates
 import { startPage } from "./templates/start-page";
 import { settingPage } from "./templates/setting-page";
-import { gamePage } from "./templates/game-page";
+import { gamePageTemplate } from "./templates/game-page";
 
 //settings
 import { initThemeSelection } from "./settings/theme-selection";
 
 //game
-import { initCards } from "./game/cards";
+import { createCards } from "./game/cards";
 
 /**
  * Initializes the application and displays the start page.
@@ -55,8 +55,8 @@ function showSettingPage(): void {
 
 function showGamePage(): void {
   document.body.className = "game-page";
-  app.innerHTML = gamePage();
-  initCards();
+  app.innerHTML = gamePageTemplate();
+  createCards(24);
 }
 
 init();

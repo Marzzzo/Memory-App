@@ -1,4 +1,4 @@
-export function gamePage() {
+export function gamePageTemplate() {
   return /*html*/ `
               <main class="game-main">
         <section class="game-main__content">
@@ -25,18 +25,24 @@ export function gamePage() {
             </button>
           </header>
           <div class="card-section">
-            <div class="card">
-              <div class="card__inner">
-                <div class="card__front">
-                  <img src="/assets/dev-icon.svg" alt="" />
-                </div>
-                <div class="card__back">
-                  <img src="/assets/html.svg" alt="" />
-                </div>
-              </div>
-            </div>
+          //cards rendered here//
           </div>
         </section>
       </main>
     `;
+}
+
+export function cardTemplate(): string {
+  return `
+    <div class="card">
+      <div class="card__inner">
+        <div class="card__front">
+          <img src="/assets/dev-icon.svg" alt="">
+        </div>
+        <div class="card__back">
+          <img src="/assets/html.svg" alt="">
+        </div>
+      </div>
+    </div>
+  `;
 }
