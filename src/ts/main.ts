@@ -5,6 +5,7 @@ import "../scss/abstract/_mixin.scss";
 
 //components
 import "../scss/components/_buttons.scss";
+import "../scss/components/_cards.scss";
 
 //pages
 import "../scss/pages/_start-page.scss";
@@ -18,6 +19,9 @@ import { gamePage } from "./templates/game-page";
 
 //settings
 import { initThemeSelection } from "./settings/theme-selection";
+
+//game
+import { initCards } from "./game/cards";
 
 /**
  * Initializes the application and displays the start page.
@@ -45,6 +49,14 @@ function showSettingPage(): void {
   document.body.className = "setting-page";
   app.innerHTML = settingPage();
   initThemeSelection();
+  const startButton = document.querySelector<HTMLButtonElement>(".board-button");
+  startButton?.addEventListener("click", showGamePage);
 }
 
-// init();
+function showGamePage(): void {
+  document.body.className = "game-page";
+  app.innerHTML = gamePage();
+  initCards();
+}
+
+init();

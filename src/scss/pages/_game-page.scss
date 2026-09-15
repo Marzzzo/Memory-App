@@ -14,8 +14,6 @@
 }
 
 .game-main__header {
-  position: absolute;
-  top: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -73,44 +71,44 @@
   align-items: center;
   gap: 8px;
 
-  &>img {
+  & > img {
     width: 29px;
     height: 24px;
   }
 
-  &>span {
+  & > span {
     font-family: "Red Rose";
     font-size: 26px;
     font-weight: 400;
-    color: #FFFFFF;
+    color: #ffffff;
   }
 }
 
-.header-right{
+.header-right {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 207px;
   height: 62px;
-  border: 2px solid #4DD5BC;
-  background-color: #86E9D624;
+  border: 2px solid #4dd5bc;
+  background-color: #86e9d624;
   gap: 10px;
   cursor: pointer;
 
-  &>img{
+  & > img {
     width: 25.75px;
     height: 22.5px;
   }
 
-  &>span{
+  & > span {
     font-family: "Red Rose";
     font-size: 24px;
     font-weight: 700;
-    color: #FFFFFF;
+    color: #ffffff;
   }
 
-  &:hover{
-    border: 3px solid #4DD5BC;
-    box-shadow: 4px 4px 6px #4DD5BC33;
+  &:hover {
+    border: 3px solid #4dd5bc;
+    box-shadow: 4px 4px 6px #4dd5bc33;
   }
 }
