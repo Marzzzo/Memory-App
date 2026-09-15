@@ -53,10 +53,16 @@ function showSettingPage(): void {
   startButton?.addEventListener("click", showGamePage);
 }
 
+function getSelectedBoardSize(): number {
+  const input = document.querySelector<HTMLInputElement>('input[name="board-size"]:checked');
+  return Number(input?.value);
+}
+
 function showGamePage(): void {
+  const boardSize = getSelectedBoardSize();
   document.body.className = "game-page";
   app.innerHTML = gamePageTemplate();
-  createCards(24);
+  createCards(boardSize);
 }
 
 init();
