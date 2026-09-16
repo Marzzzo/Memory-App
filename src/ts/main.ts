@@ -64,7 +64,7 @@ function getSelectedBoardSize(): number {
 }
 
 /**
- * Displays the game page and creates the selected game board.
+ * Displays the game page and creates the game board with the selected size.
  */
 function showGamePage(): void {
   const boardSize = getSelectedBoardSize();
