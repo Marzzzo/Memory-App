@@ -70,7 +70,7 @@ function showGamePage(): void {
   const boardSize = getSelectedBoardSize();
   document.body.className = "game-page";
   app.innerHTML = gamePageTemplate();
-  createCards(boardSize);
+  createCards(boardSize, "codeVibes");
 }
 
 init();

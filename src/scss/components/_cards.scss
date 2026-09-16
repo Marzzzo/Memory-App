@@ -1,17 +1,18 @@
 .card-section {
   display: grid;
   grid-template-columns: repeat(4, 120px);
-  gap: 16px;
   justify-content: center;
   padding-top: 54px;
 
   &--16 {
     grid-template-columns: repeat(4, 120px);
+    gap: 16px;
   }
 
   &--24,
   &--36 {
     grid-template-columns: repeat(6, 120px);
+    gap: 6px;
   }
 }
 
@@ -45,8 +46,13 @@
   }
 
   &__back {
-    background: white;
+    background: #E8F3F0;
     transform: rotateY(180deg);
+
+    &>img {
+      width: 70px;
+      height: 70px;
+    }
   }
 
   &--flipped &__inner {
