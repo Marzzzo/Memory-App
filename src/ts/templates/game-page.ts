@@ -3,7 +3,7 @@
  *
  * @returns The game page template as an HTML string.
  */
-export function gamePageTemplate(): string {
+export function gamePageTemplate(player: string): string {
   return /*html*/ `
               <main class="game-main">
         <section class="game-main__content">
@@ -22,7 +22,7 @@ export function gamePageTemplate(): string {
             </div>
             <div class="header-mid">
               <span>Current player:</span>
-              <img src="./assets/blue-label.svg" alt="" />
+              <img src="${getPlayerIcon(player)}" alt="${player} player" />
             </div>
             <button class="header-right">
               <img src="./assets/exit-icon.svg" alt="" />
@@ -55,4 +55,8 @@ export function cardTemplate(image: string): string {
       </div>
     </div>
   `;
+}
+
+function getPlayerIcon(player: string): string {
+  return player === "orange" ? "./assets/orange-label.svg" : "./assets/blue-label.svg";
 }

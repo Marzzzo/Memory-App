@@ -219,3 +219,13 @@ function addPreviewEvents(label: HTMLLabelElement): void {
   });
   label.addEventListener("mouseleave", showSelectedPreview);
 }
+
+export function getSelectedBoardSize(): number {
+  const input = document.querySelector<HTMLInputElement>('input[name="board-size"]:checked');
+  return Number(input?.value);
+}
+
+export function getSelectedPlayer(): string {
+  const input = document.querySelector<HTMLInputElement>('input[name="player"]:checked');
+  return input?.value ?? "";
+}

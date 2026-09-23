@@ -18,7 +18,7 @@ import { settingPage } from "./templates/setting-page";
 import { gamePageTemplate } from "./templates/game-page";
 
 //settings
-import { initThemeSelection } from "./settings/theme-selection";
+import { initThemeSelection, getSelectedBoardSize, getSelectedPlayer } from "./settings/theme-selection";
 
 //game
 import { createCards } from "./game/cards";
@@ -54,22 +54,13 @@ function showSettingPage(): void {
 }
 
 /**
- * Returns the currently selected board size.
- *
- * @returns The selected board size as a number.
- */
-function getSelectedBoardSize(): number {
-  const input = document.querySelector<HTMLInputElement>('input[name="board-size"]:checked');
-  return Number(input?.value);
-}
-
-/**
  * Displays the game page and creates the game board with the selected size.
  */
 function showGamePage(): void {
   const boardSize = getSelectedBoardSize();
+  const player = getSelectedPlayer();
   document.body.className = "game-page";
-  app.innerHTML = gamePageTemplate();
+  app.innerHTML = gamePageTemplate(player);
   createCards(boardSize, "codeVibes");
 }
 
