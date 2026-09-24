@@ -220,11 +220,21 @@ function addPreviewEvents(label: HTMLLabelElement): void {
   label.addEventListener("mouseleave", showSelectedPreview);
 }
 
+/**
+ * Returns the currently selected board size.
+ *
+ * @returns The selected board size as a number.
+ */
 export function getSelectedBoardSize(): number {
   const input = document.querySelector<HTMLInputElement>('input[name="board-size"]:checked');
   return Number(input?.value);
 }
 
+/**
+ * Returns the currently selected player.
+ *
+ * @returns The selected player color.
+ */
 export function getSelectedPlayer(): string {
   const input = document.querySelector<HTMLInputElement>('input[name="player"]:checked');
   return input?.value ?? "";

@@ -1,3 +1,5 @@
+import { getPlayerIcon } from "../game/player";
+
 /**
  * Creates the HTML template for the game page.
  *
@@ -44,7 +46,7 @@ export function gamePageTemplate(player: string): string {
  */
 export function cardTemplate(image: string): string {
   return `
-    <div class="card">
+    <div class="card" data-image = "${image}">
       <div class="card__inner">
         <div class="card__front">
           <img src="./assets/dev-icon.svg" alt="">
@@ -55,8 +57,4 @@ export function cardTemplate(image: string): string {
       </div>
     </div>
   `;
-}
-
-function getPlayerIcon(player: string): string {
-  return player === "orange" ? "./assets/orange-label.svg" : "./assets/blue-label.svg";
 }

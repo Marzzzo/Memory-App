@@ -1,5 +1,6 @@
 import { THEMES } from "./themes";
 import { cardTemplate } from "../templates/game-page";
+import { flipCard } from "./game-logic";
 
 /**
  * Creates the specified number of cards and initializes them.
@@ -15,6 +16,15 @@ export function createCards(amount: number, theme: keyof typeof THEMES): void {
 }
 
 /**
+ * Initializes all cards and adds a click event to flip each card.
+ */
+function initCards(): void {
+  document.querySelectorAll<HTMLElement>(".card").forEach((card) => {
+    card.addEventListener("click", () => flipCard(card));
+  });
+}
+
+/**
  * Creates shuffled card templates for the selected theme.
  *
  * @param amount - The total number of cards to create.
@@ -25,23 +35,6 @@ function createCardTemplates(amount: number, theme: keyof typeof THEMES): string
   const images = getCardImages(amount, theme);
   const shuffledImages = shuffleCards(images);
   return shuffledImages.map((image) => cardTemplate(image)).join("");
-}
-/**
- * Initializes all cards and adds a click event to flip each card.
- */
-function initCards(): void {
-  document.querySelectorAll<HTMLElement>(".card").forEach((card) => {
-    card.addEventListener("click", () => flipCard(card));
-  });
-}
-
-/**
- * Flips a card by toggling its flipped state.
- *
- * @param card - The card element to flip.
- */
-function flipCard(card: HTMLElement): void {
-  card.classList.toggle("card--flipped");
 }
 
 /**
