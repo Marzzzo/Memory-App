@@ -14,17 +14,17 @@ export function gamePageTemplate(player: string): string {
               <div class="game-main__header--left--blue">
                 <img src="./assets/blue-label.svg" alt="" />
                 <span>Blue</span>
-                <span>0</span>
+                <span id="blue-score">0</span>
               </div>
               <div class="game-main__header--left--orange">
                 <img src="./assets/orange-label.svg" alt="" />
                 <span>Orange</span>
-                <span>0</span>
+                <span id="orange-score">0</span>
               </div>
             </div>
             <div class="header-mid">
               <span>Current player:</span>
-              <img src="${getPlayerIcon(player)}" alt="${player} player" />
+              <img id="current-player-icon" src="${getPlayerIcon(player)}" alt="current-player" />
             </div>
             <button class="header-right">
               <img src="./assets/exit-icon.svg" alt="" />

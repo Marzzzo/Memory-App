@@ -22,6 +22,7 @@ import { initThemeSelection, getSelectedBoardSize, getSelectedPlayer } from "./s
 
 //game
 import { createCards } from "./game/cards";
+import { setCurrentPlayer } from "./game/player";
 
 /**
  * Initializes the application and displays the start page.
@@ -61,6 +62,7 @@ function showGamePage(): void {
   const player = getSelectedPlayer();
   document.body.className = "game-page";
   app.innerHTML = gamePageTemplate(player);
+  setCurrentPlayer(player);
   createCards(boardSize, "codeVibes");
 }
 

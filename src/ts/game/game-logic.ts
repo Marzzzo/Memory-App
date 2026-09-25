@@ -1,3 +1,5 @@
+import { addPoint, switchPlayer } from "./player";
+
 let firstCard: HTMLElement | null = null;
 let secondCard: HTMLElement | null = null;
 let isChecking = false;
@@ -25,6 +27,7 @@ function checkCards(): void {
   if (!firstCard || !secondCard) return;
   isChecking = true;
   if (cardsMatch()) {
+    addPoint();
     resetCards();
     return;
   }
@@ -46,6 +49,7 @@ function cardsMatch(): boolean {
 function flipCardsBack(): void {
   firstCard?.classList.remove("card--flipped");
   secondCard?.classList.remove("card--flipped");
+  switchPlayer();
   resetCards();
 }
 
