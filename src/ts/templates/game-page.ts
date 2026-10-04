@@ -1,4 +1,5 @@
 import { getPlayerIcon } from "../game/player";
+import { exitOverlayTemplate } from "./overlay";
 
 /**
  * Creates the HTML template for the game page.
@@ -26,7 +27,7 @@ export function gamePageTemplate(player: string): string {
               <span>Current player:</span>
               <img id="current-player-icon" src="${getPlayerIcon(player)}" alt="current-player" />
             </div>
-            <button class="header-right">
+            <button id="exit-game-button" class="header-right">
               <img src="./assets/exit-icon.svg" alt="" />
               <span>Exit game</span>
             </button>
@@ -36,6 +37,7 @@ export function gamePageTemplate(player: string): string {
           </div>
         </section>
       </main>
+      ${exitOverlayTemplate()};
     `;
 }
 

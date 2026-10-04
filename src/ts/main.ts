@@ -23,6 +23,7 @@ import { initThemeSelection, getSelectedBoardSize, getSelectedPlayer } from "./s
 //game
 import { createCards } from "./game/cards";
 import { setCurrentPlayer } from "./game/player";
+import { initGameExit } from "./game/game-exit";
 
 /**
  * Initializes the application and displays the start page.
@@ -64,6 +65,7 @@ function showGamePage(): void {
   app.innerHTML = gamePageTemplate(player);
   setCurrentPlayer(player);
   createCards(boardSize, "codeVibes");
+  initGameExit();
 }
 
 init();
