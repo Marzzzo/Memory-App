@@ -56,7 +56,7 @@ function flipCardsBack(): void {
 /**
  * Resets the selected cards and allows the next card selection.
  */
-function resetCards(): void {
+export function resetCards(): void {
   firstCard = null;
   secondCard = null;
   isChecking = false;

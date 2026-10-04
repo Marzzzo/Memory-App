@@ -22,8 +22,9 @@ import { initThemeSelection, getSelectedBoardSize, getSelectedPlayer } from "./s
 
 //game
 import { createCards } from "./game/cards";
-import { setCurrentPlayer } from "./game/player";
+import { resetPlayers, setCurrentPlayer } from "./game/player";
 import { initGameExit } from "./game/game-exit";
+import { resetCards } from "./game/game-logic";
 
 /**
  * Initializes the application and displays the start page.
@@ -65,7 +66,13 @@ function showGamePage(): void {
   app.innerHTML = gamePageTemplate(player);
   setCurrentPlayer(player);
   createCards(boardSize, "codeVibes");
-  initGameExit();
+  initGameExit(exitGame);
+}
+
+function exitGame(): void {
+  resetPlayers();
+  resetCards();
+  showSettingPage();
 }
 
 init();

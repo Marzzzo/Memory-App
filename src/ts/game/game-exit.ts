@@ -1,11 +1,13 @@
 /**
  * Initializes the exit game button.
  */
-export function initGameExit(): void {
+export function initGameExit(onExit: () => void): void {
   const exitButton = document.getElementById("exit-game-button");
   const continueButton = document.getElementById("continue-game-button");
+  const confirmButton = document.getElementById("confirm-exit-button");
   exitButton?.addEventListener("click", openExitOverlay);
   continueButton?.addEventListener("click", closeExitOverlay);
+  confirmButton?.addEventListener("click", onExit);
 }
 
 /**
@@ -21,7 +23,6 @@ function closeExitOverlay(): void {
   if (!overlay) return;
   overlay?.classList.remove("exit-overlay--open");
   overlay?.classList.add("exit-overlay--closing");
-
   setTimeout(() => {
     overlay.classList.remove("exit-overlay--closing");
   }, 400);

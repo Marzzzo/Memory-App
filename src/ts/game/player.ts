@@ -11,6 +11,12 @@ export function switchPlayer(): void {
   updatePlayerIcon();
 }
 
+export function resetPlayers(): void {
+  currentPlayer = "";
+  blueScore = 0;
+  orangeScore = 0;
+}
+
 export function addPoint(): void {
   if (currentPlayer === "blue") blueScore++;
   if (currentPlayer === "orange") orangeScore++;
