@@ -20,7 +20,7 @@ export function gameOverTemplate(): string {
   return `
       <div id="game-over-overlay" class="game-over-overlay">
         <div class="game-over-overlay__content">
-          <img src="./public/assets/game over.svg" alt="" />
+          <img src="./assets/game over.svg" alt="" />
           <div class="game-over-overlay__score">
             <span>Final score</span>
             ${playerScoreTemplate()}
