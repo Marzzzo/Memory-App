@@ -46,10 +46,10 @@
   }
 
   &__back {
-    background: #E8F3F0;
+    background: #e8f3f0;
     transform: rotateY(180deg);
 
-    &>img {
+    & > img {
       width: 70px;
       height: 70px;
     }
@@ -57,5 +57,11 @@
 
   &--flipped &__inner {
     transform: rotateY(180deg);
+  }
+
+  &--matched &__back {
+    border: 5px solid #4dd5bc;
+    box-sizing: border-box;
+    box-shadow: 6px 6px 8px 0 rgba(77, 213, 188, 0.3);
   }
 }

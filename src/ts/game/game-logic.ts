@@ -27,11 +27,17 @@ function checkCards(): void {
   if (!firstCard || !secondCard) return;
   isChecking = true;
   if (cardsMatch()) {
+    cardsAsMatched();
     addPoint();
     resetCards();
     return;
   }
   setTimeout(flipCardsBack, 1000);
+}
+
+function cardsAsMatched(): void {
+  firstCard?.classList.add("card--matched");
+  secondCard?.classList.add("card--matched");
 }
 
 /**
