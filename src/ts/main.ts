@@ -11,6 +11,7 @@ import "../scss/components/_cards.scss";
 import "../scss/pages/_start-page.scss";
 import "../scss/pages/_setting-page.scss";
 import "../scss/pages/_game-page.scss";
+import "../scss/pages/_overlays.scss";
 
 //templates
 import { startPage } from "./templates/start-page";

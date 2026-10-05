@@ -1,3 +1,5 @@
+import { playerScoreTemplate } from "./game-page";
+
 export function exitOverlayTemplate(): string {
   return `
     <div id="exit-overlay" class="exit-overlay">
@@ -12,4 +14,18 @@ export function exitOverlayTemplate(): string {
         </div>
     </div>    
     `;
+}
+
+export function gameOverTemplate(): string {
+  return `
+      <div id="game-over-overlay" class="game-over-overlay">
+        <div class="game-over-overlay__content">
+          <img src="./public/assets/game over.svg" alt="" />
+          <div class="game-over-overlay__score">
+            <span>Final score</span>
+            ${playerScoreTemplate()}
+          </div>
+        </div>
+      </div>
+  `;
 }

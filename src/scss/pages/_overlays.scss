@@ -1,0 +1,40 @@
+.game-over-overlay {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  inset: 0;
+  background-color: #303131;
+  z-index: 1000;
+
+  &--open {
+    display: flex;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 124px;
+
+    & > img {
+      width: 990.5px;
+      height: 125.2px;
+    }
+  }
+
+  &__score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+
+    & > span {
+      font-family: "Red Rose";
+      font-weight: 400;
+      font-size: 26px;
+      color: #ffffff;
+    }
+  }
+}

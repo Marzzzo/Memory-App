@@ -29,6 +29,7 @@ function checkCards(): void {
   if (cardsMatch()) {
     cardsAsMatched();
     addPoint();
+    checkGameEnd();
     resetCards();
     return;
   }
@@ -57,6 +58,32 @@ function flipCardsBack(): void {
   secondCard?.classList.remove("card--flipped");
   switchPlayer();
   resetCards();
+}
+
+/**
+ * Checks whether all cards have been matched.
+ *
+ * @returns True if all cards are matched, otherwise false.
+ */
+function isGameFinished(): boolean {
+  const cards = document.querySelectorAll(".card");
+  return [...cards].every((card) => card.classList.contains("card--matched"));
+}
+
+/**
+ * Opens the game over overlay.
+ */
+function openGameOver(): void {
+  const overlay = document.getElementById("game-over-overlay");
+  overlay?.classList.add("game-over-overlay--open");
+}
+
+/**
+ * Checks whether the game has ended.
+ */
+function checkGameEnd(): void {
+  if (!isGameFinished()) return;
+  setTimeout(openGameOver, 1000);
 }
 
 /**

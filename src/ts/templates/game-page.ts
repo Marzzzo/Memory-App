@@ -1,5 +1,6 @@
 import { getPlayerIcon } from "../game/player";
 import { exitOverlayTemplate } from "./overlay";
+import { gameOverTemplate } from "./overlay";
 
 /**
  * Creates the HTML template for the game page.
@@ -11,18 +12,7 @@ export function gamePageTemplate(player: string): string {
               <main class="game-main">
         <section class="game-main__content">
           <header class="game-main__header">
-            <div class="game-main__header--left">
-              <div class="game-main__header--left--blue">
-                <img src="./assets/blue-label.svg" alt="" />
-                <span>Blue</span>
-                <span id="blue-score">0</span>
-              </div>
-              <div class="game-main__header--left--orange">
-                <img src="./assets/orange-label.svg" alt="" />
-                <span>Orange</span>
-                <span id="orange-score">0</span>
-              </div>
-            </div>
+              ${playerScoreTemplate()}
             <div class="header-mid">
               <span>Current player:</span>
               <img id="current-player-icon" src="${getPlayerIcon(player)}" alt="current-player" />
@@ -37,7 +27,8 @@ export function gamePageTemplate(player: string): string {
           </div>
         </section>
       </main>
-      ${exitOverlayTemplate()};
+      ${exitOverlayTemplate()}
+      ${gameOverTemplate()}
     `;
 }
 
@@ -47,7 +38,7 @@ export function gamePageTemplate(player: string): string {
  * @returns The card template as an HTML string.
  */
 export function cardTemplate(image: string): string {
-  return `
+  return /*html*/ `
     <div class="card" data-image = "${image}">
       <div class="card__inner">
         <div class="card__front">
@@ -56,6 +47,29 @@ export function cardTemplate(image: string): string {
         <div class="card__back">
           <img src="${image}" alt="">
         </div>
+      </div>
+    </div>
+  `;
+}
+
+/**
+ * Returns the player score display.
+ *
+ * @returns The player score display as an HTML string.
+ */
+export function playerScoreTemplate(): string {
+  return /*html*/ `
+    <div class="game-main__header--left">
+      <div class="game-main__header--left--blue">
+        <img src="./assets/blue-label.svg" alt="" />
+        <span>Blue</span>
+        <span class="blue-score">0</span>
+      </div>
+
+      <div class="game-main__header--left--orange">
+        <img src="./assets/orange-label.svg" alt="" />
+        <span>Orange</span>
+        <span class="orange-score">0</span>
       </div>
     </div>
   `;

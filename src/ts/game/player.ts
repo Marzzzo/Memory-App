@@ -29,11 +29,18 @@ export function updatePlayerIcon(): void {
   icon.src = getPlayerIcon(currentPlayer);
 }
 
+/**
+ * Updates all displayed player scores.
+ */
 function updateScore(): void {
-  const blueScoreElement = document.getElementById("blue-score");
-  const orangeScoreElement = document.getElementById("orange-score");
-  if (blueScoreElement) blueScoreElement.textContent = blueScore.toString();
-  if (orangeScoreElement) orangeScoreElement.textContent = orangeScore.toString();
+  const blueScores = document.querySelectorAll(".blue-score");
+  const orangeScores = document.querySelectorAll(".orange-score");
+  blueScores.forEach((score) => {
+    score.textContent = blueScore.toString();
+  });
+  orangeScores.forEach((score) => {
+    score.textContent = orangeScore.toString();
+  });
 }
 
 /**
